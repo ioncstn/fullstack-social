@@ -1,0 +1,32 @@
+services: 
+  node-server:
+    build: ./server
+    ports:
+      - 9876:9876
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+  node-client:
+    build: ./client
+    ports:
+      - 5173:5173
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgress
+      - POSTGRES_DB=chirama
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdatabase:/var/lib/postgresql/data
+
+volumes:
+  pgdatabase:    

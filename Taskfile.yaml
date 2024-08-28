@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  start:
+    cmds:
+      - docker compose up --detach
+
+  stop:
+    cmds:
+      - docker compose down
+
+  restart:
+    cmds:
+      - task: stop
+      - task: start
+
+  rebuild:
+    cmds:
+      - docker compose up --detach --build
+
+  logs-server:
+    cmds:
+      - docker compose logs --follow node-server
+
+  logs-client:
+    cmds:
+      - docker compose logs --follow node-client
