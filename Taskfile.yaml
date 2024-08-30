@@ -25,3 +25,11 @@ tasks:
   logs-client:
     cmds:
       - docker compose logs --follow node-client
+
+  install-client:
+    cmds:
+      - docker compose exec -it node-client npm install
+
+  install-server:
+    cmds:
+      - docker compose exec -it node-server npm install
