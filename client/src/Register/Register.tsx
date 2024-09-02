@@ -1,9 +1,9 @@
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { ChangeEvent, useState } from 'react'
 import Spacer from "../Core/Spacer";
-import { Title } from "@mui/icons-material";
+import JuliusTitle from "../Core/Title";
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
@@ -37,9 +37,7 @@ export default function Login() {
       justifyContent="center"
       alignItems="center"
     >
-      <Typography variant="h2" gutterBottom>
-        REGISTER
-      </Typography>
+      { JuliusTitle('REGISTER') }
       <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
         <TextField
           id="username"
