@@ -1,0 +1,3 @@
+{
+  "dev": "postgres://postgres:root@database/chirama"
+}

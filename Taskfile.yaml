@@ -33,3 +33,7 @@ tasks:
   install-server:
     cmds:
       - docker compose exec -it node-server npm install
+
+  create-migration:
+    cmds:
+      - docker compose exec -it node-server node node_modules/db-migrate/bin/db-migrate check

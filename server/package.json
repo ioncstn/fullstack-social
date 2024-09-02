@@ -12,6 +12,8 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
     "pg": "^8.12.0",
