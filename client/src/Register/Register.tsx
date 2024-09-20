@@ -1,9 +1,10 @@
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { ChangeEvent, useState } from 'react'
 import Spacer from "../Core/Spacer";
 import JuliusTitle from "../Core/Title";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
@@ -81,6 +82,10 @@ export default function Login() {
       >
         REGISTER
       </Button>
+      <Spacer height={3} />
+      <Typography component="span">
+        Already have an account? Login <Link to="/">here</Link>.
+      </Typography>
     </Box>
   )
 }

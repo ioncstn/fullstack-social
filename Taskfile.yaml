@@ -36,4 +36,8 @@ tasks:
 
   create-migration:
     cmds:
-      - docker compose exec -it node-server node node_modules/db-migrate/bin/db-migrate check
+      - docker compose exec -it node-server node node_modules/db-migrate/bin/db-migrate create {{.CLI_ARGS}} --sql-file
+
+  migrate-up:
+    cmds:
+      - docker compose exec -it node-server node node_modules/db-migrate/bin/db-migrate up

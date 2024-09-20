@@ -5,7 +5,6 @@ import { ChangeEvent, useState } from 'react'
 import Spacer from "../Core/Spacer";
 import { Link } from "react-router-dom";
 import JuliusTitle from "../Core/Title";
-import { Forward10 } from "@mui/icons-material";
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
