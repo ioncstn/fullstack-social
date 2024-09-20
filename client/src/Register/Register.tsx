@@ -5,6 +5,9 @@ import { ChangeEvent, useState } from 'react'
 import Spacer from "../Core/Spacer";
 import JuliusTitle from "../Core/Title";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { API_URL } from "../Constants";
+
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
@@ -19,6 +22,15 @@ export default function Login() {
       [name]: value,
     });
   }
+
+  const handleRegister = async () => {
+    const response = await axios.post(API_URL + "/users/create", {
+      username: loginFormData.username,
+      password: loginFormData.password
+    });
+
+    console.log(response)
+  }
   
   const [showPassword, setShowPassword] = useState(false);
 
@@ -31,6 +43,7 @@ export default function Login() {
   const handleMouseUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
+
   return(
     <Box
       display="flex"
@@ -79,6 +92,7 @@ export default function Login() {
         type="submit"
         variant="outlined"
         fullWidth
+        onClick={handleRegister}
       >
         REGISTER
       </Button>

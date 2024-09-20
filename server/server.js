@@ -18,13 +18,17 @@ try {
 // it works with http://localhost:5173
 
 // const corsOptions = {
-//   origin: ["node-client:5173"],
+//   origin: true,
+//   // origin: ["http://localhost:5173"],
 // }
-
 // app.use(cors(corsOptions))
 
 app.get("/hello", (_, res) => {
   res.json({"fruits": ["apricot", "pear", "cherry", "pineapple"]})
+})
+
+app.post("/users/create", (req, res) => {
+  res.json({"status": "ok"})
 })
 
 app.listen(9876, () => {
