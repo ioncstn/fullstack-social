@@ -16,7 +16,6 @@ try {
 
 //  idk why it does not work with node-client:5173,
 // it works with http://localhost:5173
-
 // const corsOptions = {
 //   origin: true,
 //   // origin: ["http://localhost:5173"],
