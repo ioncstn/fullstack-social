@@ -29,7 +29,7 @@ export default function Login() {
       password: loginFormData.password
     });
 
-    console.log(response)
+    console.log(response.data)
   }
   
   const [showPassword, setShowPassword] = useState(false);

@@ -1,11 +1,17 @@
 import express from "express"
 import cors from "cors"
-import Sequelize from "sequelize"
+import bcrypt from "bcrypt"
+import { v4 as uuidv4} from "uuid"
+import db from "./src/db/connection.js"
+import User from "./src/models/user.js"
 
 const app = express()
 app.use(cors())
+// can parse json bodies
+app.use(express.json())
 
-const db = new Sequelize('postgres://postgres:postgres@database/chirama')
+// salt rounds for hashing passwords
+const saltRounds = 6
 
 try {
   await db.authenticate()
@@ -26,7 +32,17 @@ app.get("/hello", (_, res) => {
   res.json({"fruits": ["apricot", "pear", "cherry", "pineapple"]})
 })
 
-app.post("/users/create", (req, res) => {
+app.post("/users/create", async (req, res) => {
+  console.log(req.body.username)
+  const id = uuidv4()
+  const username = req.body.username
+  var password = req.body.password
+  await User.create({ id: id, username: username, password: password})
+
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+    
+  })
+
   res.json({"status": "ok"})
 })
 
