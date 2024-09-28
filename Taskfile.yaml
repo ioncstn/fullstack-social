@@ -37,6 +37,7 @@ tasks:
   create-migration:
     cmds:
       - docker compose exec -it node-server node node_modules/db-migrate/bin/db-migrate create {{.CLI_ARGS}} --sql-file
+      - docker compose exec -it node-server chmod -R 777 migrations/sqls
 
   migrate-up:
     cmds:

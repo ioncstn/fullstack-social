@@ -5,7 +5,7 @@ import Sequelize from "sequelize"
 const app = express()
 app.use(cors())
 
-const db = new Sequelize('postgres://postgres:root@database/chirama')
+const db = new Sequelize('postgres://postgres:postgres@database/chirama')
 
 try {
   await db.authenticate()
